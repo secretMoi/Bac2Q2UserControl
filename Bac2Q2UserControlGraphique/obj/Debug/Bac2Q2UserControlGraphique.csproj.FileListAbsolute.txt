@@ -1,0 +1,8 @@
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\obj\Debug\Bac2Q2UserControlGraphique.csprojAssemblyReference.cache
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\obj\Debug\Bac2Q2UserControlGraphique.UserControl1.resources
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\obj\Debug\Bac2Q2UserControlGraphique.csproj.GenerateResource.cache
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\obj\Debug\Bac2Q2UserControlGraphique.csproj.CoreCompileInputs.cache
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\bin\Debug\Bac2Q2UserControlGraphique.dll
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\bin\Debug\Bac2Q2UserControlGraphique.pdb
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\obj\Debug\Bac2Q2UserControlGraphique.dll
+C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique\Bac2Q2UserControlGraphique\obj\Debug\Bac2Q2UserControlGraphique.pdb

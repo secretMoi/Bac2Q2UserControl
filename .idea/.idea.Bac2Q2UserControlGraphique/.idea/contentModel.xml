@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\winmo\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\winmo\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Bac2Q2UserControlGraphique.942926167.00" t="ExcludeRecursive" />
+    <e p="C:\Users\winmo\RiderProjects\Bac2Q2UserControlGraphique" t="IncludeFlat">
+      <e p="Bac2Q2UserControlGraphique" t="IncludeRecursive">
+        <e p="Bac2Q2UserControlGraphique.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="core" t="Include">
+          <e p="Couple.cs" t="Include" />
+          <e p="Element" t="Include">
+            <e p="Element.cs" t="Include" />
+          </e>
+          <e p="Figures" t="Include">
+            <e p="Cercle.cs" t="Include" />
+            <e p="Disque.cs" t="Include" />
+            <e p="Figure.cs" t="Include" />
+            <e p="Ligne.cs" t="Include" />
+            <e p="Rectangle.cs" t="Include" />
+            <e p="Rotation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Graphique.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Spirographe.cs" t="Include" />
+        <e p="UserControl1.cs" t="Include" />
+        <e p="UserControl1.Designer.cs" t="Include" />
+        <e p="UserControl1.resx" t="Include" />
+      </e>
+      <e p="Bac2Q2UserControlGraphique.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
