@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 using Bac2Q2UserControlGraphique.core;
 using Bac2Q2UserControlGraphique.Core.Element;
 using Bac2Q2UserControlGraphique.Core.Figures;
@@ -95,6 +96,8 @@ namespace Bac2Q2UserControlGraphique
 
         private void Relier()
         {
+            if(ListeElements().Count < 2) return;
+            
             List<Figure> liste = ListeElements();
             
             for (int i = 0; i < compteur - 1; i++)
@@ -130,6 +133,12 @@ namespace Bac2Q2UserControlGraphique
             // tailleFenetre / delta => facteur de zoom
             ajustementZoom.Y = dimensionsFenetre.Y / deltaMaximum.Y * 0.98;
             ajustementZoom.X = dimensionsFenetre.X / deltaMaximum.X * 0.98;
+
+            // todo mettre dans la classe
+            if (Math.Abs(deltaMaximum.X) < 0.001)
+                ajustementZoom.X = 1;
+            if (Math.Abs(deltaMaximum.Y) < 0.001)
+                ajustementZoom.Y = 1;
         }
     }
 }
