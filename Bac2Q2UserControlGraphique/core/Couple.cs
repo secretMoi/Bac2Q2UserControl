@@ -3,13 +3,18 @@ using System.Drawing;
 
 namespace Bac2Q2UserControlGraphique.core
 {
-    public class Couple
+    public class Couple : ICloneable
     {
         //private PointF couple;
         private double x, y;
         private const float MargeErreur = Single.Epsilon;
 
         #region Constructeurs
+        public Couple(Couple point)
+        {
+            X = point.X;
+            Y = point.Y;
+        }
         public Couple(PointF point = default)
         {
             X = point.X;
@@ -163,6 +168,11 @@ namespace Bac2Q2UserControlGraphique.core
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
 
         // vérifie que les valeurs stockées sont identiques

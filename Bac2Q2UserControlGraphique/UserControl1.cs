@@ -19,25 +19,29 @@ namespace Bac2Q2UserControlGraphique
             InitializeComponent();
 
             Figure.InitialiseConteneur(this);
-
-           
+            spirographe = new Spirographe();
         }
 
-        public Couple Taille()
+        public void Rafraichir()
         {
-            return graphique.dimensionsFenetre;
-        }
+            graphique = new Graphique(
+                new Couple(Width / 2, Height / 2),
+                new Couple(Width, Height)
+            );
 
-        public void AjoutPoints()
-        {
-            spirographe.Add(0, 0);
-            spirographe.Add(50, -50);
-            spirographe.Add(60, -50);
-            spirographe.Add(75, -75);
-            spirographe.Add(100, 100);
-            spirographe.Add(110, 100);
-
+            graphique.ListePoints(spirographe.InverseY());
+            
             Invalidate();
+        }
+
+        [Category("Apparence")]
+        public bool AjoutPoint(Couple point)
+        {
+            bool resultat = spirographe.Add(point);
+
+            Rafraichir();
+
+            return resultat;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -51,20 +55,16 @@ namespace Bac2Q2UserControlGraphique
         {
             base.OnSizeChanged(e);
 
-            graphique = new Graphique(
-                new Couple(Width / 2, Height / 2),
-                new Couple(Width, Height)
-            );
-            spirographe = new Spirographe();
-
-            AjoutPoints();
-
-            graphique.ListePoints(spirographe.InverseY());
+            spirographe.Add(0, 0);
+            spirographe.Add(50, -50);
+            spirographe.Add(60, -50);
+            spirographe.Add(75, -75);
+            spirographe.Add(100, 100);
+            spirographe.Add(110, 100);
+            
+            Rafraichir();
         }
 
-        public Spirographe Points()
-        {
-            return spirographe;
-        }
+        public Spirographe Points => spirographe;
     }
 }

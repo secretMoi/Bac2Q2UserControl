@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using Bac2Q2UserControlGraphique.core;
 using Bac2Q2UserControlGraphique.Core.Element;
 using Bac2Q2UserControlGraphique.Core.Figures;
@@ -32,6 +33,8 @@ namespace Bac2Q2UserControlGraphique
         
         public void ListePoints(List<Couple> points)
         {
+            if (!points.Any()) return;
+            
             TrouveMaximum(points); // trouve les points extremes
             Zoom(); // effectue un "zoom" pour que les points collent au bord de la fenêtre
             PlacePoints(points); // place les points
@@ -69,10 +72,12 @@ namespace Bac2Q2UserControlGraphique
         private Couple Positionne(Couple point)
         {
             // étire + réajuste avec le décalage étiré
-            point.X = PositionneX(point.X);
-            point.Y = PositionneY(point.Y);
+            Couple pointAjuste = new Couple(
+                PositionneX(point.X),
+                PositionneY(point.Y)
+            );
 
-            return point;
+            return pointAjuste;
         }
 
         private double PositionneX(double x, double decalage = 0)
@@ -125,10 +130,6 @@ namespace Bac2Q2UserControlGraphique
             // tailleFenetre / delta => facteur de zoom
             ajustementZoom.Y = dimensionsFenetre.Y / deltaMaximum.Y * 0.98;
             ajustementZoom.X = dimensionsFenetre.X / deltaMaximum.X * 0.98;
-
-            /*ajustementZoom.Y = 293 / deltaMaximum.Y * 0.98;
-            ajustementZoom.X = 460 / deltaMaximum.X * 0.98;*/
-
         }
     }
 }

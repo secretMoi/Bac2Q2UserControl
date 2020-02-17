@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using Bac2Q2UserControlGraphique.core;
 
 namespace Bac2Q2UserControlGraphique
@@ -22,6 +25,14 @@ namespace Bac2Q2UserControlGraphique
         }
         
         public bool Add(int x, int y)
+        {
+            // utilise l'ajoutre méthode Add
+            Couple point = new Couple(x, y);
+
+            return Add(point);
+        }
+        
+        public bool Add(double x, double y)
         {
             // utilise l'ajoutre méthode Add
             Couple point = new Couple(x, y);
@@ -52,13 +63,18 @@ namespace Bac2Q2UserControlGraphique
             return points.Count;
         }
 
+        public Couple Get(int position)
+        {
+            return points[position];
+        }
+
         public List<Couple> InverseY()
         {
             // crée une copie par valeur de la liste points
-            List<Couple> pointsInverse = new List<Couple>(points);
-            
-            foreach (Couple point in pointsInverse)
-                point.Y = -point.Y; // inverse les Y
+            List<Couple> pointsInverse = new List<Couple>(points).ToList();
+
+            for (int i = 0; i < points.Count; i++)
+                pointsInverse[i] = new Couple(points[i].X, -points[i].Y);
 
             return pointsInverse;
         }
