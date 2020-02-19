@@ -55,12 +55,12 @@ namespace Bac2Q2UserControlGraphique
         {
             base.OnSizeChanged(e);
 
-            /*spirographe.Add(0, 0);
+            spirographe.Add(0, 0);
             spirographe.Add(50, -50);
             spirographe.Add(60, -50);
             spirographe.Add(75, -75);
             spirographe.Add(100, 100);
-            spirographe.Add(110, 100);*/
+            spirographe.Add(110, 100);
             
             Rafraichir();
         }

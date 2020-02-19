@@ -6,12 +6,10 @@ namespace Bac2Q2UserControlGraphique
 {
     public class Spirographe
     {
-        private List<Couple> points;
         private SortedList<double, double> listePoints;
         
         public Spirographe()
         {
-            points = new List<Couple>();
             listePoints = new SortedList<double, double>();
         }
 
@@ -19,7 +17,6 @@ namespace Bac2Q2UserControlGraphique
         {
             if (!EstValide(point)) return false; // vérifie que le point est valide
 
-            points.Add(point); // l'ajoute
             listePoints.Add(point.X, point.Y);
             
             return true;
@@ -41,18 +38,19 @@ namespace Bac2Q2UserControlGraphique
             return Add(point);
         }
 
+        public void RemoveAt(int position)
+        {
+            listePoints.RemoveAt(position);
+        }
+
         public bool EstValide(Couple point)
         {
             if (point.Y < -100 || point.Y > 100) return false; // Y dans les bornes -100 & 100
-            if (points.Count > 0 && point.X <= points[points.Count - 1].X) return false; // X croissant
+            if (listePoints.ContainsKey(point.X)) return false;
 
             return true;
         }
-
-        public List<Couple> Liste2()
-        {
-            return points;
-        }
+        
         public List<Couple> Liste()
         {
             List<Couple> pointsRetour = new List<Couple>();
@@ -62,32 +60,7 @@ namespace Bac2Q2UserControlGraphique
             
             return pointsRetour;
         }
-
-        public void RemoveAt(int position)
-        {
-            points.RemoveAt(position);
-        }
-
-        public int Count()
-        {
-            return points.Count;
-        }
-
-        public Couple Get(int position)
-        {
-            return points[position];
-        }
-
-        public List<Couple> InverseY2()
-        {
-            // crée une copie par valeur de la liste points
-            List<Couple> pointsInverse = new List<Couple>(points).ToList();
-
-            for (int i = 0; i < points.Count; i++)
-                pointsInverse[i] = new Couple(points[i].X, -points[i].Y);
-
-            return pointsInverse;
-        }
+        
         public List<Couple> InverseY()
         {
             // crée une copie par valeur de la liste points
