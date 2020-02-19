@@ -43,6 +43,11 @@ namespace Bac2Q2UserControlGraphique
             listePoints.RemoveAt(position);
         }
 
+        public Couple GetAt(int position)
+        {
+            return new Couple(listePoints.Keys[position], listePoints.Values[position]);
+        }
+
         public bool EstValide(Couple point)
         {
             if (point.Y < -100 || point.Y > 100) return false; // Y dans les bornes -100 & 100
@@ -56,7 +61,7 @@ namespace Bac2Q2UserControlGraphique
             List<Couple> pointsRetour = new List<Couple>();
 
             for (int i = 0; i < listePoints.Count; i++)
-                pointsRetour.Add(new Couple(listePoints.Keys[i], listePoints.Values[i]));
+                pointsRetour.Add(GetAt(i));
             
             return pointsRetour;
         }
@@ -71,5 +76,9 @@ namespace Bac2Q2UserControlGraphique
             
             return pointsInverse;
         }
+
+        public int Count => listePoints.Count;
+
+        public Couple this[int position] => new Couple(listePoints.Keys[position], listePoints.Values[position]);
     }
 }

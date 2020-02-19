@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
 using Bac2Q2UserControlGraphique.core;
 using Bac2Q2UserControlGraphique.Core.Element;
 using Bac2Q2UserControlGraphique.Core.Figures;
@@ -14,7 +12,7 @@ namespace Bac2Q2UserControlGraphique
     {
         private int compteur;
         private readonly Dictionary<string, double> maximum;
-        public readonly Couple dimensionsFenetre;
+        private readonly Couple dimensionsFenetre;
         private readonly Couple ajustementZoom;
 
         public Graphique(Couple position, Couple dimensionsFenetre) : base(position)
@@ -69,13 +67,36 @@ namespace Bac2Q2UserControlGraphique
                 compteur++;
             }
         }
+        
+        public void Encadre(List<Couple> points)
+        {
+            Dimensionne(16, 16);
+            
+            foreach (Couple point in points)
+            {
+                position = Positionne(point, -5);
 
-        private Couple Positionne(Couple point)
+                AjouterCercle("Cadre" + compteur, Color.Green, 2);
+                
+                compteur++;
+            }
+        }
+
+        public void EncadreNettoie()
+        {
+            for (int i = 0; i < elements.Count; i++)
+            {
+                if(elements.ElementAt(i).Key.Contains("Cadre"))
+                    elements.Remove(elements.ElementAt(i).Key);
+            }
+        }
+
+        private Couple Positionne(Couple point, double decalage = 0)
         {
             // étire + réajuste avec le décalage étiré
             Couple pointAjuste = new Couple(
-                PositionneX(point.X),
-                PositionneY(point.Y)
+                PositionneX(point.X, decalage),
+                PositionneY(point.Y, decalage)
             );
 
             return pointAjuste;

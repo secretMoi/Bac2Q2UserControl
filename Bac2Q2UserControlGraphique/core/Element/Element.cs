@@ -35,6 +35,11 @@ namespace Bac2Q2UserControlGraphique.Core.Element
             dimensions = new Couple(x * zoom, y * zoom);
         }
 
+        public void Remove(string cle)
+        {
+            elements.Remove(cle);
+        }
+
         // affiche toutes les figures de l'élément
         public virtual void Affiche(Graphics graphics)
         {

@@ -44,6 +44,17 @@ namespace Bac2Q2UserControlGraphique
             return resultat;
         }
 
+        public void Encadre(List<int> positionPoints)
+        {
+            graphique.EncadreNettoie();
+            Spirographe points = new Spirographe();
+
+            for (int i = 0; i < positionPoints.Count; i++)
+                points.Add(spirographe[positionPoints[i]]);
+            
+            graphique.Encadre(points.InverseY());
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
